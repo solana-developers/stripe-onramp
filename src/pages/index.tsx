@@ -10,10 +10,8 @@ export default function Home({ clientSecret }: { clientSecret: string | null }) 
       const stripeOnramp = await loadStripeOnramp(
         "pk_test_51MelqmKFdUBg6B83SMCXJh2TAY7gDjgpTyj0DoeASTcLqwY7lBFH3ZhlJKYQ9eOEm9kSBLwfHovKuEIVHpvOfnN800qEcndtaf"
       )
-      console.log(stripeOnramp)
       if (!stripeOnramp) throw("Onramp failed to load.")
       const onrampSession = stripeOnramp.createSession({ clientSecret, appearance: { theme: 'dark' } })
-      console.log("Onramp loaded.")
       onrampSession.mount("#onramp-element")
     }
   }
